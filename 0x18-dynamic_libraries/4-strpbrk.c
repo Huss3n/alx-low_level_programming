@@ -1,23 +1,26 @@
 #include "main.h"
+
 /**
- * _strpbrk - Entry point
- * @s: input
- * @accept: input
- * Return: Always 0 (Success)
- */
+**_strpbrk - function that count ocurrences of first segmen with accept char
+*@s: string of input
+*@accept: characters that should compare with s
+*Return: the string with coincidences
+*/
+
 char *_strpbrk(char *s, char *accept)
 {
-	int k;
+	int i;
 
-	while (*s)
+	while (*s != ' ')
 	{
-		for (k = 0; accept[k]; k++)
+		for (i = 0; accept[i] != '\0'; i++)
 		{
-		if (*s == accept[k])
-		return (s);
+			if (accept[i] == *s)
+			{
+				return (s);
+			}
 		}
-	s++;
+		s++;
 	}
-
-return ('\0');
+	return ('\0');
 }

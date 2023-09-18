@@ -1,26 +1,32 @@
 #include "main.h"
+
 /**
- * _strstr - Entry point
- * @haystack: input
- * @needle: input
- * Return: Always 0 (Success)
- */
+**_strstr - function that count ocurrences of first segmen with accept char
+*@haystack: string of input
+*@needle: characters that should compare with s
+*Return: the stri	ng with coincidences
+*/
+
 char *_strstr(char *haystack, char *needle)
 {
-	for (; *haystack != '\0'; haystack++)
+	int a = 0;
+	int b = 0;
+
+	while (haystack[a])
 	{
-		char *l = haystack;
-		char *p = needle;
-
-		while (*l == *p && *p != '\0')
+		while (needle[b])
 		{
-			l++;
-			p++;
+			if (haystack[a + b] != needle[b])
+			{
+				break;
+			}
+			b++;
 		}
-
-		if (*p == '\0')
-			return (haystack);
+		if (needle[b] == '\0')
+		{
+			return (haystack + a);
+		}
+		a++;
 	}
-
-	return (0);
+	return ('\0');
 }
